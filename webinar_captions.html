@@ -27,7 +27,7 @@
       theme = 0,
       bgcs = ["00008b", "000000", "ffffff"],
       fgcs = ["ffff00", "ffff00", "000000"],
-	  event = "IHaveADream" // "CFI-GPE"; 
+	  event =   "CFI-GPE"; //"IHaveADream"
   function button(id, handler) {
 	function inner(e) {
 		e.preventDefault();
@@ -43,24 +43,7 @@
 	}
 	document.getElementById(id).addEventListener("click", inner);
   }
-    function changeColors(e) {
-      e.preventDefault();
-      theme = (theme + 1) % 3;
-      setCaptionSource();
-    }
-    function largerFont(e) {
-      e.preventDefault();
-      
-      if (fontSize < 70) fontSize += 2;
-      console.log('increase font size to', fontSize);
-      setCaptionSource();
-  }
-    function smallerFont(e) {
-      e.preventDefault();
-      if (fontSize > 14) fontSize -= 2;
-      console.log('decrease font size to', fontSize);
-      setCaptionSource();
-    }
+    
     button("changeColors", function() {theme = (theme + 1) % 3});
 	button("largerFont", function() { if (fontSize < 70) fontSize += 2 });
 	button("smallerFont", function() { if (fontSize > 14) fontSize -= 2 });
