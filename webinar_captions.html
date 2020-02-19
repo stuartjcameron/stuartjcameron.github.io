@@ -17,7 +17,7 @@
   <body style="margin:10px 10px 0 10px;">
 <table><tr><td style="width: 912px;">
 <iframe width="912" height="513" src="https://www.youtube.com/embed/iGkytVI2IWk?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-  <iframe id="stFrame" frameborder="0" src="//www.streamtext.net/player?event=NetcaptionDemonstration&chat=false&controls=false&header=false&footer=false&indicator=false&fs=30&fgc=ffff00&bgc=00008b&ff=verdana" style="width:912px;height:250px"> </iframe> 
+  <iframe id="stFrame" frameborder="0" src="//www.streamtext.net/player?event=CFI-GPE&chat=false&controls=false&header=false&footer=false&indicator=false&fs=30&fgc=ffff00&bgc=00008b&ff=verdana" style="width:912px;height:250px"> </iframe> 
   </td><td valign="top">
 <iframe width="360" height="513" src="https://www.youtube.com/live_chat?v=iGkytVI2IWk&embed_domain=stuartjcameron.github.io" frameborder="0"></iframe>
   <div id="controls"><div id="largerFont">Larger font</div><div id="smallerFont">Smaller font</div><div id="changeColors">Change colors</div>
@@ -26,11 +26,22 @@
   let fontSize = 30, 
       theme = 0,
       bgcs = ["00008b", "000000", "ffffff"],
-      fgcs = ["ffff00", "ffff00", "000000"]; 
-  function setCaptionSource() {
-    let main = "//www.streamtext.net/player?event=NetcaptionDemonstration&chat=false&controls=false&header=false&footer=false&indicator=false&ff=verdana";
-    document.getElementById("stFrame").src = main + "&fs=" + fontSize 
-      + "&fgc=" + fgcs[theme] + "&bgc=" + bgcs[theme];
+      fgcs = ["ffff00", "ffff00", "000000"],
+	  event = "CFI-GPE"; 
+  function button(id, handler) {
+	function inner(e) {
+		e.preventDefault();
+		handler();
+		document.getElementById("stFrame").src = "//www.streamtext.net/player?event=" + 
+			event + 
+			"&chat=false&controls=false&header=false&footer=false&indicator=false&ff=verdana&fs=" + 
+			fontSize + 
+			"&fgc=" + 
+			fgcs[theme] + 
+			"&bgc=" + 
+			bgcs[theme];
+	}
+	document.getElementById(id).addEventListener("click", inner);
   }
     function changeColors(e) {
       e.preventDefault();
@@ -50,10 +61,9 @@
       console.log('decrease font size to', fontSize);
       setCaptionSource();
     }
-    
-    document.getElementById("largerFont").addEventListener("click", largerFont);
-    document.getElementById("smallerFont").addEventListener("click", smallerFont);
-    document.getElementById("changeColors").addEventListener("click", changeColors);
+    button("largerFont", function() {theme = (theme + 1) % 3});
+	button("smallerFont", function() { if (fontSize < 70) fontSize += 2 });
+	button("changeColors", function() { if (fontSize > 14) fontSize -= 2 });
   </script>
   
   </body> </html>
