@@ -1,0 +1,59 @@
+<!DOCTYPE html> <html> <head> <title>GPE webinar: gender and disability - findings from the Girls' Education Challenge</title> </head> 
+  <style type="text/css">
+    #controls div {
+      font-size: 16px; 
+      font-family: Verdana, sans-serif;
+      border: 1px solid black;
+      padding: 2px 5px;
+      margin: 10px;
+      display: inline-block;
+      cursor: pointer;
+      -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+    }
+  </style>
+  <body style="margin:10px 10px 0 10px;">
+<table><tr><td style="width: 912px;">
+<iframe width="912" height="513" src="https://www.youtube.com/embed/iGkytVI2IWk?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+  <iframe id="stFrame" frameborder="0" src="//www.streamtext.net/player?event=NetcaptionDemonstration&chat=false&controls=false&header=false&footer=false&indicator=false&fs=30&fgc=ffff00&bgc=00008b&ff=verdana" style="width:912px;height:250px"> </iframe> 
+  </td><td valign="top">
+<iframe width="360" height="513" src="https://www.youtube.com/live_chat?v=iGkytVI2IWk&embed_domain=gpewebinar.htmlsave.com" frameborder="0"></iframe>
+  <div id="controls"><div id="largerFont">Larger font</div><div id="smallerFont">Smaller font</div><div id="changeColors">Change colors</div>
+    </td></tr></table>
+  <script type="text/javascript">
+  let fontSize = 30, 
+      theme = 0,
+      bgcs = ["00008b", "000000", "ffffff"],
+      fgcs = ["ffff00", "ffff00", "000000"]; 
+  function setCaptionSource() {
+    let main = "//www.streamtext.net/player?event=NetcaptionDemonstration&chat=false&controls=false&header=false&footer=false&indicator=false&ff=verdana";
+    document.getElementById("stFrame").src = main + "&fs=" + fontSize 
+      + "&fgc=" + fgcs[theme] + "&bgc=" + bgcs[theme];
+  }
+    function changeColors(e) {
+      e.preventDefault();
+      theme = (theme + 1) % 3;
+      setCaptionSource();
+    }
+    function largerFont(e) {
+      e.preventDefault();
+      
+      if (fontSize < 70) fontSize += 2;
+      console.log('increase font size to', fontSize);
+      setCaptionSource();
+  }
+    function smallerFont(e) {
+      e.preventDefault();
+      if (fontSize > 14) fontSize -= 2;
+      console.log('decrease font size to', fontSize);
+      setCaptionSource();
+    }
+    
+    document.getElementById("largerFont").addEventListener("click", largerFont);
+    document.getElementById("smallerFont").addEventListener("click", smallerFont);
+    document.getElementById("changeColors").addEventListener("click", changeColors);
+  </script>
+  
+  </body> </html>
