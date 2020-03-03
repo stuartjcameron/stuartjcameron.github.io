@@ -38,6 +38,7 @@
 	while (match = search.exec(query)) {
        r[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
   }
+  return r;
   }
   
   
