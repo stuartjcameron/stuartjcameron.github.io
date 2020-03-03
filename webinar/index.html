@@ -65,12 +65,16 @@ function Captions(event) {
     }
     return {
         largerFont: function() {
-            if (fontSize < 70) fontSize += 2;
-            setSource();
+            if (fontSize < 70) {
+				fontSize += 2;
+				setSource();
+			}
         },
         smallerFont: function() {
-            if (fontSize > 14) fontSize -= 2;
-            setSource();
+            if (fontSize > 14) {
+				fontSize -= 2;
+				setSource();
+			}
         },
         changeColors: function() {
             theme = (theme + 1) % 3;
