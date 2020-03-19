@@ -1,0 +1,96 @@
+<!DOCTYPE html> <html> <head> <title>GPE webinar: gender and disability - findings from the Girls' Education Challenge</title> </head> 
+  <style type="text/css">
+    #controls div {
+      font-size: 16px; 
+      font-family: Verdana, sans-serif;
+      border: 1px solid black;
+      padding: 2px 5px;
+      margin: 10px;
+      display: inline-block;
+      cursor: pointer;
+      -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+    }
+  </style>
+  <body style="margin:10px 10px 0 10px;">
+<table><tr><td style="width: 912px;">
+<iframe width="912" height="513" id="youtube-video" src="" frameborder="0" allowfullscreen></iframe>
+  <iframe id="stFrame" frameborder="0" src="" style="width:912px;height:250px"> </iframe> 
+  </td><td valign="top">
+<iframe width="360" height="513" id="youtube-chat" src="" frameborder="0"></iframe>
+  <div id="controls"><div id="largerFont">Larger font</div><div id="smallerFont">Smaller font</div><div id="changeColors">Change colors</div>
+    </td></tr></table>
+  <script type="text/javascript">
+let params = getParams(),
+	captions = Captions(params.event);
+setYoutubeSource(params.v);
+button("changeColors", captions.changeColors);
+button("largerFont", captions.largerFont);
+button("smallerFont", captions.smallerFont);
+
+function getParams() {
+    let query = window.location.search.substring(1),
+        search = /([^&=]+)=?([^&]*)/g,
+        r = {};
+    var match;
+    while (match = search.exec(query)) {
+        r[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+    }
+    return r;
+}
+
+function setYoutubeSource(v) {
+    document.getElementById("youtube-video").src = "https://www.youtube.com/embed/" + v + "?feature=player_detailpage";
+    document.getElementById("youtube-chat").src = "https://www.youtube.com/live_chat?v=" + v + "&embed_domain=stuartjcameron.github.io";
+}
+
+function Captions(event) {
+    let fontSize = 30,
+        theme = 0,
+        bgcs = ["00008b", "000000", "ffffff"],
+        fgcs = ["ffff00", "ffff00", "000000"];
+    setSource();
+
+    function setSource() {
+        document.getElementById("stFrame").src = "//www.streamtext.net/player?event=" +
+            event +
+            "&chat=false&controls=false&header=false&footer=false&indicator=false&ff=verdana&fs=" +
+            fontSize +
+            "&fgc=" +
+            fgcs[theme] +
+            "&bgc=" +
+            bgcs[theme];
+    }
+    return {
+        largerFont: function() {
+            if (fontSize < 70) {
+				fontSize += 2;
+				setSource();
+			}
+        },
+        smallerFont: function() {
+            if (fontSize > 14) {
+				fontSize -= 2;
+				setSource();
+			}
+        },
+        changeColors: function() {
+            theme = (theme + 1) % 3;
+            setSource();
+        }
+    }
+}
+
+function button(id, handler) {
+    function inner(e) {
+        e.preventDefault();
+        handler();
+    }
+    document.getElementById(id).addEventListener("click", inner);
+}
+
+  </script>
+  
+  </body> </html>
