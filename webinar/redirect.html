@@ -1,0 +1,43 @@
+<!DOCTYPE html> <html> <head> <title>GPE webinar: Using evidence to leave no child behind: what next for the Out-of-School Children Initiative?</title> </head> 
+  <style type="text/css">
+    #controls div {
+      font-size: 16px; 
+      font-family: Verdana, sans-serif;
+      border: 1px solid black;
+      padding: 2px 5px;
+      margin: 10px;
+      display: inline-block;
+      cursor: pointer;
+      -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+    }
+	.fr {font-style: italic;}
+  </style>
+  <body style="margin:10px 10px 0 10px;">
+  <h1>GPE webinar: Using evidence to leave no child behind: what next for the Out-of-School Children Initiative?</h1>
+  <p>You should be redirected to the webinar page in <span id="redirect-time-en">5</span> seconds. If the redirect does not work please click on one of the links below.</p>
+  <p class="fr">Vous devez être redirigé vers la page du webinaire en <span id="redirect-time-fr">5</span> secondes. Si la redirection ne fonctionne pas, veuillez cliquer sur l'un des liens ci-dessous.</p>
+  <p id="link-en"><a href="https://www.youtube.com/watch?v=iGkytVI2IWk">Webinar in English</a></p>
+  <p id="link-en-cc"><a href="cc/?v=iGkytVI2IWk&event=CFI-WorldBank">Webinar in English with captions (subtitles)</a></p>
+  <p id="link-fr" class="fr"><a href="https://www.youtube.com/watch?v=RxeuaarijuE">Webinaire en français</a></p>
+  <script type="text/javascript">
+let params = getParams();
+	
+function getParams() {
+    let query = window.location.search.substring(1),
+        search = /([^&=]+)=?([^&]*)/g,
+        r = {};
+    var match;
+    while (match = search.exec(query)) {
+        r[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+    }
+    return r;
+}
+window.setTimeout(function() {
+	window.location.replace(document.querySelector("#link-" + (params.lang || "en") + " a").href);
+	}, 5000);
+  </script>
+  
+  </body> </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html> <html> <head> <title>GPE webinar: Using evidence to leave no child behind: what next for the Out-of-School Children Initiative?</title> </head> 
+<!DOCTYPE html> <html> <head> <title>GPE webinar: gender and disability - findings from the Girls' Education Challenge</title> </head> 
   <style type="text/css">
     #controls div {
       font-size: 16px; 
@@ -13,18 +13,23 @@
     -khtml-user-select: none; /* webkit (konqueror) browsers */
     -ms-user-select: none; /* IE10+ */
     }
-	.fr {font-style: italic;}
   </style>
   <body style="margin:10px 10px 0 10px;">
-  <h1>GPE webinar: Using evidence to leave no child behind: what next for the Out-of-School Children Initiative?</h1>
-  <p>You should be redirected to the webinar page in <span id="redirect-time-en">5</span> seconds. If the redirect does not work please click on one of the links below.</p>
-  <p class="fr">Vous devez être redirigé vers la page du webinaire en <span id="redirect-time-fr">5</span> secondes. Si la redirection ne fonctionne pas, veuillez cliquer sur l'un des liens ci-dessous.</p>
-  <p id="link-en"><a href="https://www.youtube.com/watch?v=iGkytVI2IWk">Webinar in English</a></p>
-  <p id="link-en-cc"><a href="cc/?v=iGkytVI2IWk&event=CFI-WorldBank">Webinar in English with captions (subtitles)</a></p>
-  <p id="link-fr" class="fr"><a href="https://www.youtube.com/watch?v=RxeuaarijuE">Webinaire en français</a></p>
+<table><tr><td style="width: 912px;">
+<iframe width="912" height="513" id="youtube-video" src="" frameborder="0" allowfullscreen></iframe>
+  <iframe id="stFrame" frameborder="0" src="" style="width:912px;height:250px"> </iframe> 
+  </td><td valign="top">
+<iframe width="360" height="513" id="youtube-chat" src="" frameborder="0"></iframe>
+  <div id="controls"><div id="largerFont">Larger font</div><div id="smallerFont">Smaller font</div><div id="changeColors">Change colors</div>
+    </td></tr></table>
   <script type="text/javascript">
-let params = getParams();
-	
+let params = getParams(),
+	captions = Captions(params.event);
+setYoutubeSource(params.v);
+button("changeColors", captions.changeColors);
+button("largerFont", captions.largerFont);
+button("smallerFont", captions.smallerFont);
+
 function getParams() {
     let query = window.location.search.substring(1),
         search = /([^&=]+)=?([^&]*)/g,
@@ -35,9 +40,57 @@ function getParams() {
     }
     return r;
 }
-window.setTimeout(function() {
-	window.location.replace(document.querySelector("#link-" + (params.lang || "en") + " a").href);
-	}, 5000);
+
+function setYoutubeSource(v) {
+    document.getElementById("youtube-video").src = "https://www.youtube.com/embed/" + v + "?feature=player_detailpage";
+    document.getElementById("youtube-chat").src = "https://www.youtube.com/live_chat?v=" + v + "&embed_domain=stuartjcameron.github.io";
+}
+
+function Captions(event) {
+    let fontSize = 30,
+        theme = 0,
+        bgcs = ["00008b", "000000", "ffffff"],
+        fgcs = ["ffff00", "ffff00", "000000"];
+    setSource();
+
+    function setSource() {
+        document.getElementById("stFrame").src = "//www.streamtext.net/player?event=" +
+            event +
+            "&chat=false&controls=false&header=false&footer=false&indicator=false&ff=verdana&fs=" +
+            fontSize +
+            "&fgc=" +
+            fgcs[theme] +
+            "&bgc=" +
+            bgcs[theme];
+    }
+    return {
+        largerFont: function() {
+            if (fontSize < 70) {
+				fontSize += 2;
+				setSource();
+			}
+        },
+        smallerFont: function() {
+            if (fontSize > 14) {
+				fontSize -= 2;
+				setSource();
+			}
+        },
+        changeColors: function() {
+            theme = (theme + 1) % 3;
+            setSource();
+        }
+    }
+}
+
+function button(id, handler) {
+    function inner(e) {
+        e.preventDefault();
+        handler();
+    }
+    document.getElementById(id).addEventListener("click", inner);
+}
+
   </script>
   
   </body> </html>
