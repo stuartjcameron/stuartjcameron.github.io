@@ -23,7 +23,7 @@
   <div id="controls"><div id="largerFont">Larger font</div><div id="smallerFont">Smaller font</div><div id="changeColors">Change colors</div>
     </td></tr></table>
   <script type="text/javascript">
-let params = getParams(),
+const params = getParams(),
 	captions = Captions(params.event);
 setYoutubeSource(params.v);
 button("changeColors", captions.changeColors);
@@ -31,7 +31,7 @@ button("largerFont", captions.largerFont);
 button("smallerFont", captions.smallerFont);
 
 function getParams() {
-    let query = window.location.search.substring(1),
+    const query = window.location.search.substring(1),
         search = /([^&=]+)=?([^&]*)/g,
         r = {};
     var match;
@@ -41,18 +41,19 @@ function getParams() {
     return r;
 }
 
+
 function setYoutubeSource(v) {
     document.getElementById("youtube-video").src = "https://www.youtube.com/embed/" + v + "?feature=player_detailpage";
     document.getElementById("youtube-chat").src = "https://www.youtube.com/live_chat?v=" + v + "&embed_domain=stuartjcameron.github.io";
 }
 
 function Captions(event) {
-    let fontSize = 30,
-        theme = 0,
-        bgcs = ["00008b", "000000", "ffffff"],
+    const bgcs = ["00008b", "000000", "ffffff"],
         fgcs = ["ffff00", "ffff00", "000000"];
+	let fontSize = 30,
+        theme = 0;
     setSource();
-
+	
     function setSource() {
         document.getElementById("stFrame").src = "//www.streamtext.net/player?event=" +
             event +
