@@ -28,13 +28,16 @@ import os
 #import klembord
 
 from jinja2 import Environment, FileSystemLoader
-
+import markdown
 
 SCRIPT_PATH = os.path.realpath(__file__)
 PATH = os.path.dirname(os.path.dirname(SCRIPT_PATH))
 
 environment = Environment(loader=FileSystemLoader(f"{PATH}/websetup"))
 template = environment.get_template("template.j2")
-output = template.render(test_content="Hello there!")
+with open(f"{PATH}/content/index.md", encoding="utf-8") as f:
+    content = markdown.markdown(f.read())
+
+output = template.render(main=content)
 with open(f"{PATH}/index.html", "w", encoding="utf-8") as f:
     f.write(output)
