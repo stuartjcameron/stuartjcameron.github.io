@@ -4,7 +4,7 @@ nav {
   width: 220px;
   }
 nav ul {padding-left: 0}
-nav li {list-style-type: none; }
+nav li {list-style-type: none; padding: 3px 0 3px 0}
 #toplink {
   position: fixed;
   bottom: 20px;
