@@ -1,7 +1,8 @@
 body {font-family: Roboto, Arial, sans-serif}
 
-nav ul {padding-left: 0; margin: 16px}
-nav li {list-style-type: none; padding: 3px 0 3px 0}
+#leftnav ul {padding-left: 0; margin: 16px}
+#leftnav li {list-style-type: none; padding: 3px 0 3px 0}
+#inline-nav {}
 #toplink {
   position: fixed;
   bottom: 20px;
@@ -12,12 +13,17 @@ h1 {
 }
 h2 {font-weight: normal; color: darkred;padding-top: 1.5em; }
 h3 {font-weight: bold;color: darkred;;}
+#leftnav {display: none}
 
 @media only screen and (min-width: 650px) {
-  nav {
+  #leftnav {
     position: fixed;
     width: 220px;
+    display: block;
     }
+  #inline-nav {
+    display: none
+  }
   #main {
     position: absolute;
     left: 260px;

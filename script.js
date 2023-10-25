@@ -1,5 +1,8 @@
 const headings = document.getElementsByTagName("h2");
 const nav = document.getElementsByTagName("nav")[0];
+const inlineNav = document.createElement("nav");
+inlineNav.id = "inline-nav";
+headings[0].parentNode.insertBefore(inlineNav, headings[0]);
 const anchors = new Set();
 const bigBlockAtEnd = document.createElement("div");
 bigBlockAtEnd.id = "big-block";
@@ -20,6 +23,7 @@ function makeAnchor(s) {
 }
 const ul = document.createElement("ul");
 nav.appendChild(ul);
+let first = true;
 for (const heading of headings) {
     const id_ = makeAnchor(heading.textContent);
     heading.id = id_;
@@ -29,4 +33,9 @@ for (const heading of headings) {
     a.href = "#" + id_;
     li.appendChild(a);
     ul.appendChild(li);
+    if (!first) {
+        inlineNav.appendChild(document.createTextNode(" | "));
+    }
+    inlineNav.appendChild(a.cloneNode(true));
+    first = false;
 }
