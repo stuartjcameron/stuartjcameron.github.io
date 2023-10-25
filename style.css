@@ -1,11 +1,15 @@
 body {
-  font-family: Roboto, Arial, sans-serif
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+main {
+  padding: 0 1.5em;
 }
 #left-nav {display: none}
 #top-link {display: none}
 #left-nav ul {
   padding-left: 0; 
-  margin: 16px
+  margin: 16px;
 }
 #left-nav li {
   list-style-type: none; 
@@ -18,8 +22,7 @@ h1 {
  padding: 0; font-weight: normal;
 }
 h2 {font-weight: normal; color: darkred;padding-top: 1.5em; }
-h3 {font-weight: bold;color: darkred;;}
-
+h3 {font-weight: bold;color: darkred;}
 
 main li {
   line-height: 140%;
@@ -29,13 +32,13 @@ main p {
   line-height: 140%;
   margin: 0 0 1em 0;
 }
-
-
-
+#big-block {
+  height: 800px;
+}
 @media only screen and (min-width: 768px) {
   #left-nav {
     position: fixed;
-    width: 220px;
+    width: 10em;
     display: block;
     }
   #inline-nav {
@@ -43,15 +46,12 @@ main p {
   }
   main {
     position: absolute;
-    left: 260px;
+    left: 10em;
     max-width: 40em;
   }
   #top-link {
     display: block;
     position: fixed;
-    bottom: 20px;
-  }
-  #big-block {
-    height: 800px;
+    left: 16px; bottom: 16px;
   }
 }
