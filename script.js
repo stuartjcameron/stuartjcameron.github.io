@@ -1,5 +1,5 @@
 const headings = document.getElementsByTagName("h2");
-const nav = document.getElementsByTagName("nav")[0];
+const leftNav = document.getElementById("left-nav");
 const inlineNav = document.createElement("nav");
 inlineNav.id = "inline-nav";
 headings[0].parentNode.insertBefore(inlineNav, headings[0]);
@@ -7,7 +7,10 @@ const anchors = new Set();
 const bigBlockAtEnd = document.createElement("div");
 bigBlockAtEnd.id = "big-block";
 bigBlockAtEnd.innerHTML = "&nbsp;"
-document.getElementById("main").appendChild(bigBlockAtEnd);
+document.getElementsByTagName("main")[0].appendChild(bigBlockAtEnd);
+const ul = document.createElement("ul");
+leftNav.appendChild(ul);
+
 function makeAnchor(s) {
     //--- Turn any text into a usable and unique id / anchor
     const anchor = s.toLowerCase().replaceAll(" ", "-");
@@ -21,8 +24,7 @@ function makeAnchor(s) {
     anchors.add(anchor);
     return anchor;
 }
-const ul = document.createElement("ul");
-nav.appendChild(ul);
+
 let first = true;
 for (const heading of headings) {
     const id_ = makeAnchor(heading.textContent);

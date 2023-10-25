@@ -1,40 +1,26 @@
-body {font-family: Roboto, Arial, sans-serif}
-
-#leftnav ul {padding-left: 0; margin: 16px}
-#leftnav li {list-style-type: none; padding: 3px 0 3px 0}
-#inline-nav {}
-#toplink {
-  position: fixed;
-  bottom: 20px;
+body {
+  font-family: Roboto, Arial, sans-serif
 }
+#left-nav {display: none}
+#left-nav ul {
+  padding-left: 0; 
+  margin: 16px
+}
+#left-nav li {
+  list-style-type: none; 
+  padding: 3px 0 3px 0
+}
+#inline-nav {}
+
 h1, h2, h3 {margin: 16px 0 10px 0;}
 h1 {
  padding: 0; font-weight: normal;
 }
 h2 {font-weight: normal; color: darkred;padding-top: 1.5em; }
 h3 {font-weight: bold;color: darkred;;}
-#leftnav {display: none}
 
-@media only screen and (min-width: 650px) {
-  #leftnav {
-    position: fixed;
-    width: 220px;
-    display: block;
-    }
-  #inline-nav {
-    display: none
-  }
-  #main {
-    position: absolute;
-    left: 260px;
-    max-width: 40em;
-  }
-  #big-block {
-    height: 800px;
-  }
-}
-
-#main li {
+#top-link {display: none}
+main li {
   line-height: 140%;
   margin: 0 0 .5em 0;
 }
@@ -43,35 +29,28 @@ p {
   margin: 0 0 1em 0;
 }
 
-#country-statistics-table {
-  border: solid 2px black;
-}
-#country-statistics-table td  {
-  border: solid 1px grey;
-  font-size: 12px;
-  padding: 5px 10px;
-}
-#statistics-note {
-  font-size: 12px;
-  font-style: italic;
-}
-.meta-section li {
-  margin-bottom: 6pt;
-  line-height: 140%;
-}
-button {
-    background: #ededed;
-    border: 1px solid #ccc;
-    padding: 3x;
-    border-radius: 3px;
-    cursor: pointer;
+
+
+@media only screen and (min-width: 768px) {
+  #left-nav {
+    position: fixed;
+    width: 220px;
+    display: block;
+    }
+  #inline-nav {
+    display: none
   }
-  
-button.pressed {
-    background: #e5e5e5;
-    outline: none;
-    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
-       -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
-            box-shadow: inset 0px 0px 5px #c1c1c1;
+  main {
+    position: absolute;
+    left: 260px;
+    max-width: 40em;
   }
-  
+  #top-link {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+  }
+  #big-block {
+    height: 800px;
+  }
+}
