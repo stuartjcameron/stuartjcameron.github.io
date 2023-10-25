@@ -3,14 +3,14 @@ nav {
   position: fixed;
   width: 220px;
   }
-nav ul {padding-left: 0}
+nav ul {padding-left: 0; margin: 16px}
 nav li {list-style-type: none; padding: 3px 0 3px 0}
 #toplink {
   position: fixed;
   bottom: 20px;
 }
 h1 {
-  margin: 0 0 10px 0; padding: 0; font-weight: normal;
+  margin: 16px 0 10px 0; padding: 0; font-weight: normal;
 }
 h2 {font-weight: normal; color: darkred;}
 h3 {font-weight: bold;color: darkred;}

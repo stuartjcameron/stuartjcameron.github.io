@@ -85,6 +85,8 @@ I use Python, Javascript, Stata and R to create tools and dashboards for data me
 * [Twitter @sjcmrn](https://twitter.com/sjcmrn)
 * [GitHub](https://github.com/stuartjcameron)
 * [BlueSky @stuartcameron](https://bsky.app/profile/stuartcameron.bsky.social)
+* [Zotero](https://www.zotero.org/stuartjcameron)
+* [Google Scholar](https://scholar.google.com/citations?user=ssuGoXQAAAAJ&hl=en)
 
 ## Contact
 stuartjcameron at gmail dot com
