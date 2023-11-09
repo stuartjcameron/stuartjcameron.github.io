@@ -2,6 +2,7 @@ body {
   font-family: Roboto, Arial, sans-serif;
   margin: 0;
 }
+
 main {
   padding: 0 1.5em;
 }
@@ -9,7 +10,7 @@ main {
 #top-link {display: none}
 #left-nav ul {
   padding-left: 0; 
-  margin: 16px;
+  margin: 0 16px;
 }
 #left-nav li {
   list-style-type: none; 
@@ -45,8 +46,7 @@ main p {
     display: none
   }
   main {
-    position: absolute;
-    left: 10em;
+    margin: 0 0 0 10em;
     max-width: 40em;
   }
   #top-link {
@@ -55,3 +55,26 @@ main p {
     left: 16px; bottom: 16px;
   }
 }
+
+@media only screen and (min-width: 60em) {
+  #left-nav {
+    position: fixed;
+    width: 10em;
+    display: block;
+    }
+  #inline-nav {
+    display: none
+  }
+  main {
+    /*position: absolute;*/
+    /*left: 10em;*/
+    margin: 0 auto;
+    max-width: 40em;
+  }
+  #top-link {
+    display: block;
+    position: fixed;
+    left: 16px; bottom: 16px;
+  }
+}
+
