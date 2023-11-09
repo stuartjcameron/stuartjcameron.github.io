@@ -16,7 +16,12 @@ main {
   list-style-type: none; 
   padding: 3px 0 3px 0
 }
+#left-nav li.selected {
+  font-weight: bold;
+}
+
 #inline-nav {}
+#display-mode-indicator {display: none; width: 0px;}
 
 h1, h2, h3 {margin: 16px 0 10px 0;}
 h1 {
@@ -54,6 +59,8 @@ main p {
     position: fixed;
     left: 16px; bottom: 16px;
   }
+  #display-mode-indicator {width: 1px;}
+
 }
 
 @media only screen and (min-width: 60em) {
@@ -76,5 +83,7 @@ main p {
     position: fixed;
     left: 16px; bottom: 16px;
   }
+  #display-mode-indicator {width: 2px; }
+
 }
 
