@@ -89,4 +89,4 @@ I use Python, Javascript, Stata and R to create tools and dashboards for data me
 * [Google Scholar](https://scholar.google.com/citations?user=ssuGoXQAAAAJ&hl=en)
 
 ## Contact
-stuartjcameron at gmail dot com
+stuartjcameron at outlook dot com

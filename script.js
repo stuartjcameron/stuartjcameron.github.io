@@ -66,8 +66,8 @@ function onScroll() {
             updateLeftNav();
             caughtScroll = false;
         });
+        caughtScroll = true;
     } 
-    caughtScroll = true;
 }
 
 function updateLeftNav() {
