@@ -1,5 +1,5 @@
 # Stuart Cameron
-I am am independent researcher and advisor on education and international development. I am interested in how education systems around the world can be made fairer and more inclusive as they expand. My expertise includes mixed methods research, evaluation of education programmes, urban poverty, policies on access and inclusion, school improvement programmes, and data analysis and visualization.
+I am an independent researcher and advisor on education and international development. I am interested in how education systems around the world can be made fairer and more inclusive as they expand. My expertise includes mixed methods research, evaluation of education programmes, urban poverty, policies on access and inclusion, school improvement programmes, and data analysis and visualization.
 
 ## My work
 ... has been quite diverse, spanning international organizations, academia and consultancy since 2003. I have worked in Bangladesh, France, India, Italy,  Nigeria, the UK and the US. Here is [my CV](cv.pdf). Some key areas I have worked on include:
